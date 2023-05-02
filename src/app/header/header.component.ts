@@ -6,15 +6,7 @@ import { AuthService } from '../auth.service';
   styleUrls: ['./header.component.sass']
 })
 export class HeaderComponent implements OnInit {
-  isLoggedIn: boolean = false;
   constructor(private auth:AuthService){}
-  signIn(){
-    this.auth.signIn()
-  }
   ngOnInit(): void {
-    this.isLoggedIn=this.auth.isLoggedIn;
-    this.auth.changeLoginStatus.subscribe(status=>{
-      this.isLoggedIn=status;
-    })
   }
 }
