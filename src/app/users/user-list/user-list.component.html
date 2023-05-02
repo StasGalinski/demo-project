@@ -1,7 +1,0 @@
-<div class="user-list">
-  <h1>Get request part</h1>
-  <div *ngFor="let user of loadedUsers; let i = index" >
-    <app-user-item *ngIf="i<page" [user]="user"></app-user-item>
-  </div>
-  <button (click)="showMoreUsers()">Show more users</button>
-</div>
