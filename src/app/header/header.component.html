@@ -1,0 +1,9 @@
+<header>
+    <nav>
+        <a class="nav-logo">Logo</a>
+        <ul class="nav-items">
+            <li class="nav-item button">Users</li>
+            <li *ngIf="!isLoggedIn" class="nav-item button"(click)="signIn()">Sign up</li>
+        </ul>
+    </nav>
+</header>
