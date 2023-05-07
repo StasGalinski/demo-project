@@ -1,6 +1,15 @@
 .user-list
-    display: flex
-    flex-direction: row
-    flex-wrap: wrap
+  display: grid
+  grid-template-columns: 1fr
+  grid-template-rows: repeat(auto-minmax(3,auto),1fr)
+  width: 100%
+  row-gap: 20px
+  @media (min-width: 768px)
+    grid-template-columns: 1fr 1fr
+    gap: 16px
+  @media (min-width: 1024px)
+    grid-template-columns: 1fr 1fr 1fr
+    gap: 29px
+
 .button-wide
-    width: 140px
+  width: 140px

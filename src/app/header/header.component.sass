@@ -1,13 +1,21 @@
 @import '../../styles.sass'
-nav 
-    position: relative
-    height: 60px
-    display: flex
-    justify-content: space-between
-    align-items: center
-    padding: 0 16px
+nav
+  position: relative
+  height: 60px
+  display: flex
+  justify-content: space-between
+  align-items: center
+  padding: 0 1rem
+  @media screen and ( min-width: 768px)
+    padding: 0 2rem
+  @media screen and ( min-width: 1024px )
+    padding: 0 3.75rem
+  @media screen and ( min-width: 2560px )
+    padding: 0
 
-ul  
-    list-style: none
-    display: flex
-    gap: 10px
+
+ul
+  list-style: none
+  display: flex
+  gap: 10px
+

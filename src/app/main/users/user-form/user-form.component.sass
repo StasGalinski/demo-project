@@ -1,9 +1,11 @@
+@import "variables"
 form
     display: flex
     flex-direction: column
     align-items: center
     gap: 50px
 input:not([type='radio'])
+    background-color: $backgroundColor
     padding: 0 16px
     border: 1px solid #d0cfcf
     height: 54px
@@ -19,7 +21,7 @@ input.ng-touched.ng-invalid
         left: 16px
         top: -14px
         line-height: 26px
-        background-color: white
+        background-color: $backgroundColor
 .input-group
     display: flex
     flex-direction: column
@@ -52,7 +54,7 @@ input.ng-touched.ng-invalid
     border: 1px solid black
     display: inline-block
     padding: 6px 12px
-    background-color: white
+    background-color: $backgroundColor
     color: black
     cursor: pointer
 

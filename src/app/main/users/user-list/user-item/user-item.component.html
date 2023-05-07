@@ -1,6 +1,9 @@
 <div class="user-card">
+    <img src="{{user.imagePath}}" alt="{{user.name}}">
     <h3>{{user.name}}</h3>
-    <p>{{user.email}}</p>
-    <p>{{user.phone}}</p>
-    <p>{{user.position}}</p>
+    <div class="info_group">
+      <p>{{user.position}}</p>
+      <p>{{user.email}}</p>
+      <p>{{user.phone}}</p>
+    </div>
 </div>

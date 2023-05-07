@@ -8,7 +8,6 @@ import { UserService } from '../user.service';
   styleUrls: ['./user-list.component.sass']
 })
 export class UserListComponent implements OnInit {
-  page=6;
   error:string = null
   loadedUsers: User[] = []
   constructor(private usersService:UserService){}
@@ -19,6 +18,6 @@ export class UserListComponent implements OnInit {
     })
   }
   showMoreUsers(){
-    this.page= this.page+6;
+    this.usersService.increaseRenderedUsers()
   }
 }
