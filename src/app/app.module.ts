@@ -11,6 +11,7 @@ import { UsersComponent } from './main/users/users.component';
 import { UserItemComponent } from './main/users/user-list/user-item/user-item.component';
 import { ImageComponent } from './main/image/image.component';
 import { LogoComponent } from './header/logo/logo.component';
+import { PlaceHolderImageComppnent } from './main/users/user-list/user-item/placeholder-image/placeholder-image';
 
 @NgModule({
   declarations: [
@@ -21,7 +22,8 @@ import { LogoComponent } from './header/logo/logo.component';
     UsersComponent,
     UserItemComponent,
     ImageComponent,
-    LogoComponent
+    LogoComponent,
+    PlaceHolderImageComppnent
   ],
   imports: [
     BrowserModule,

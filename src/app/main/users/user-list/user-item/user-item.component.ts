@@ -7,4 +7,5 @@ import { User } from '../../user.model';
 })
 export class UserItemComponent {
 @Input() user: User
+imageLoadError = false;
 }

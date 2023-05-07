@@ -1,5 +1,8 @@
 <div class="user-card">
-    <img src="{{user.imagePath}}" alt="{{user.name}}">
+    <img *ngIf="!(imageLoadError||!user.imagePath); else palceholderImage" src="{{user.imagePath}}" alt="{{user.name}}" (error)="imageLoadError = true">
+    <ng-template #palceholderImage>
+      <app-placeholder-image></app-placeholder-image>
+    </ng-template>
     <h3>{{user.name}}</h3>
     <div class="info_group">
       <p>{{user.position}}</p>
