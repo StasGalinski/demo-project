@@ -10,36 +10,29 @@ export class AuthResponseData {
   providedIn: 'root',
 })
 export class AuthService {
+  loginStatusChanged= new Subject<string>()
+  private tokenId: string;
+  tokenExpirationDate: Date;
   constructor(private http: HttpClient) {}
-  // signIn() {
-  //   this.http
-  //     .post<AuthResponseData>(
-  //       'https://identitytoolkit.googleapis.com/v1/accounts:signUp?key=' +
-  //         environment.fireBaseApiKey,
-  //       { returnSecureToken: true }
-  //     )
-  //     .subscribe((res) => {
-  //       this.isLoggedIn = true;
-  //       this.changeLoginStatus.next(true);
-  //       console.log(res.expiresIn);
-  //       this.tokenId = res.idToken;
-  //       this.tokenExpirationDate = new Date(
-  //         new Date().getTime() + +res.expiresIn * 1000
-  //       );
-  //       localStorage.setItem('token', this.tokenId);
-  //       localStorage.setItem(
-  //         'tokenExpirationDate',
-  //         this.tokenExpirationDate.getTime() + ''
-  //       );
-  //     });
-  // }
-  // logOut() {
-  //   localStorage.removeItem('token');
-  //   localStorage.removeItem('expirationDate');
-  //   this.isLoggedIn = false;
-  //   this.changeLoginStatus.next(false);
-  // }
+  signUp() {
+    return this.http
+      .post<AuthResponseData>(
+        'https://identitytoolkit.googleapis.com/v1/accounts:signUp?key=' +
+          environment.fireBaseApiKey,
+        { returnSecureToken: true }
+      )
+      .subscribe((res) => {
+        console.log(res)
+        this.tokenId = res.idToken;
+        this.loginStatusChanged.next(this.getTokenId())
+      });
+
+  }
+  signOut() {
+
+  }
   getTokenId() {
-    
+    console.log("dsdasd",this.tokenId)
+    return this.tokenId
   }
 }

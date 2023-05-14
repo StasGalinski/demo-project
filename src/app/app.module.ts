@@ -12,6 +12,7 @@ import { UserItemComponent } from './main/users/user-list/user-item/user-item.co
 import { ImageComponent } from './main/image/image.component';
 import { LogoComponent } from './header/logo/logo.component';
 import { PlaceHolderImageComppnent } from './main/users/user-list/user-item/placeholder-image/placeholder-image';
+import { LoadingSpinnerComponent } from './shared/loading-spinner/loading-spinner.component';
 
 @NgModule({
   declarations: [
@@ -23,7 +24,8 @@ import { PlaceHolderImageComppnent } from './main/users/user-list/user-item/plac
     UserItemComponent,
     ImageComponent,
     LogoComponent,
-    PlaceHolderImageComppnent
+    PlaceHolderImageComppnent,
+    LoadingSpinnerComponent,
   ],
   imports: [
     BrowserModule,

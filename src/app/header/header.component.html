@@ -4,6 +4,6 @@
     </a>
     <ul class="nav-items">
       <li class="nav-item button">Users</li>
-      <li class="nav-item button">Sign up</li>
+      <li class="nav-item button" (click)="signUpHandler()">{{isLoggedIn ?"Sign out":"Sign up" }}</li>
     </ul>
 </nav>

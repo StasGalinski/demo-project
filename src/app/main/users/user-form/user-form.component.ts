@@ -32,9 +32,11 @@ export class UserFormComponent implements OnInit, OnDestroy {
       .addUser({ name, email, phone, imagePath, position })
       .subscribe({
         next: () => {
+          console.log('no err')
           this.userForm.reset();
         },
         error: (error) => {
+          console.log('err')
           this.error = error;
         },
       });
