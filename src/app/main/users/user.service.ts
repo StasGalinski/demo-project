@@ -2,6 +2,16 @@ import { Injectable } from '@angular/core';
 import { User } from './user.model';
 import { Subject, map } from 'rxjs';
 import { HttpClient, HttpResponse } from '@angular/common/http';
+export class Result {
+  id: number;
+  name: string;
+  email: string;
+  phone: string;
+  photoId: string;
+  positionId: number;
+  position: string;
+  registrationTimestamp: string;
+}
 @Injectable({
   providedIn: 'root',
 })
@@ -14,14 +24,20 @@ export class UserService {
   getUsers() {
     const updatedUsers: User[] = [];
     this.http
-      .get(
-        'https://fir-project-31497-default-rtdb.europe-west1.firebasedatabase.app/users.json?orderBy="$key"&limitToLast=' +
+      .get<{ result: Result[] }>(
+        'https://localhost:7146/Users/users?page=1&count=' +
           this.renderedUsersCount
       )
       .pipe(
         map((resData) => {
-          for (let key in resData) {
-            updatedUsers.push(resData[key]);
+          for (let result of resData.result) {
+            updatedUsers.push({
+              name: result.name,
+              email: result.email,
+              phone: result.phone,
+              imagePath: result.photoId,
+              position: result.position,
+            });
           }
         })
       )
