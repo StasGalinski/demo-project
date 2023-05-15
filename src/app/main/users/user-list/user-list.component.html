@@ -1,5 +1,5 @@
 <h1>Get request part</h1>
-<div class="user-list" *ngIf="!isLoading">
+<div id="user-list" class="user-list" *ngIf="!isLoading">
   <div *ngFor="let user of loadedUsers; let i = index">
     <app-user-item [user]="user"></app-user-item>
   </div>

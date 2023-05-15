@@ -1,7 +1,7 @@
-<form (ngSubmit)="onSubmit()" #f="ngForm" class="user-form">
+<form (ngSubmit)="onSubmit()" #f="ngForm" class="user-form" autocomplete="off" *ngIf="!isSubmitted">
   <h1>Working with POST request</h1>
-  <div class="input-group">
-    <div class="input-field">
+  <div class="input-groups">
+    <div class="input-group">
       <input
         class="text-input"
         id="name"
@@ -13,7 +13,7 @@
       />
       <label for="name">Your name</label>
     </div>
-    <div class="input-field">
+    <div class="input-group">
       <input
         class="text-input"
         id="email"
@@ -25,7 +25,7 @@
       />
       <label for="email">Email</label>
     </div>
-    <div class="input-field">
+    <div class="input-group">
       <input
         class="text-input"
         id="phone"
@@ -47,17 +47,17 @@
           ngModel="Frontend Developer"
           required
         />
-        <label for="position">{{ position.title }}</label>
+        <label for="position" class="radio-label">{{ position.title }}</label>
       </div>
     </div>
-    <div class="input-field">
+    <div class="input-group">
       <input
-      class="text-input"
-      name="imageScr"
-      type="text"
-      ngModel
-      name="imagePath"
-      required
+        class="text-input"
+        name="imageScr"
+        type="text"
+        ngModel
+        name="imagePath"
+        required
       />
       <label for="imageScr">Image</label>
     </div>
@@ -70,3 +70,4 @@
 
   <button class="button" [disabled]="!f.valid">Submit</button>
 </form>
+<app-success-notification *ngIf="isSubmitted"></app-success-notification>

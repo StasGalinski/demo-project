@@ -1,14 +1,14 @@
 .user-list
   display: grid
-  grid-template-columns: 1fr
+  grid-template-columns: repeat(1,minmax(0,1fr))
   grid-template-rows: repeat(auto-minmax(3,auto),1fr)
   width: 100%
   row-gap: 1.25rem
   @media (min-width: 768px)
-    grid-template-columns: 1fr 1fr
+    grid-template-columns: repeat(2,minmax(0,1fr))
     gap: 1rem
   @media (min-width: 1024px)
-    grid-template-columns: 1fr 1fr 1fr
+    grid-template-columns: repeat(3,minmax(0,1fr))
     gap: 1.8125rem
 
 .button-wide

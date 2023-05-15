@@ -5,12 +5,12 @@
   align-items: center
   gap: 3.125rem
 
-.input-group
+.input-groups
   display: flex
   flex-direction: column
   gap: 3.125rem
 
-.input-field
+.input-group
   position: relative
   label
     position: absolute
@@ -29,9 +29,15 @@ input.text-input
   width: 100%
   &.ng-touched.ng-invalid
     border: 0.125rem solid #CB3D40
+  &.ng-touched.ng-valid
+    border: 0.125rem solid #3dcb5c
+  &:focus-visible
+    outline: none
 
 input.ng-invalid.ng-touched ~ label
   color: red
+input.ng-valid.ng-touched ~ label:not(.radio-label)
+  color: #3dcb5c
 
 .radio-group
   display: flex

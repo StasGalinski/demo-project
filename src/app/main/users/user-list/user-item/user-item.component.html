@@ -1,12 +1,17 @@
 <div class="user-card">
-    <img *ngIf="!(imageLoadError||!user.imagePath); else palceholderImage" src="{{user.imagePath}}" alt="{{user.name}}" (error)="imageLoadError = true">
-    <ng-template #palceholderImage>
-      <app-placeholder-image></app-placeholder-image>
-    </ng-template>
-    <h3>{{user.name}}</h3>
-    <div class="info_group">
-      <p>{{user.position}}</p>
-      <p>{{user.email}}</p>
-      <p>{{user.phone}}</p>
-    </div>
+  <img
+    *ngIf="!(imageLoadError || !user.imagePath); else palceholderImage"
+    src="{{ user.imagePath }}"
+    alt="{{ user.name }}"
+    (error)="imageLoadError = true"
+  />
+  <ng-template #palceholderImage>
+    <app-placeholder-image></app-placeholder-image>
+  </ng-template>
+  <p app-tooltip-directive>{{ user.name }}</p>
+  <div class="info_group">
+    <p>{{ user.position }}</p>
+    <p app-tooltip-directivep>{{ user.email }}</p>
+    <p>{{ user.phone }}</p>
+  </div>
 </div>

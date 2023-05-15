@@ -22,7 +22,7 @@ export class UserService {
         map((resData) => {
           const updatedUsers: User[] = [];
           for (let key in resData) {
-            updatedUsers.push(resData[key]);
+            updatedUsers.unshift(resData[key]);
           }
           return updatedUsers;
         })
@@ -37,6 +37,7 @@ export class UserService {
       .pipe(
         map((res: HttpResponse<Response>) => {
           this.usersChanged.next();
+          this.auth.logout()
         })
       );
   }

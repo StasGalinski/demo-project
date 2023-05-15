@@ -11,7 +11,7 @@ export class LogoComponent {
   public svgIcon: SafeHtml;
   constructor(private http: HttpClient, private sanitizer: DomSanitizer) {
     this.http
-      .get('assets/images/Logo.svg', { responseType: 'text' })
+      .get('assets/images/download.svg', { responseType: 'text' })
       .subscribe(
         (data) => (this.svgIcon = this.sanitizer.bypassSecurityTrustHtml(data))
       );

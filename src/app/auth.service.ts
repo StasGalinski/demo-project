@@ -10,7 +10,7 @@ export class AuthResponseData {
   providedIn: 'root',
 })
 export class AuthService {
-  loginStatusChanged= new Subject<string>()
+  loginStatusChanged = new Subject<string>();
   private tokenId: string;
   tokenExpirationDate: Date;
   constructor(private http: HttpClient) {}
@@ -22,17 +22,16 @@ export class AuthService {
         { returnSecureToken: true }
       )
       .subscribe((res) => {
-        console.log(res)
         this.tokenId = res.idToken;
-        this.loginStatusChanged.next(this.getTokenId())
+        this.loginStatusChanged.next(this.getTokenId());
       });
-
   }
-  signOut() {
-
+  logout() {
+    this.tokenId = null;
+    this.tokenExpirationDate = null;
+    this.loginStatusChanged.next(null)
   }
   getTokenId() {
-    console.log("dsdasd",this.tokenId)
-    return this.tokenId
+    return this.tokenId;
   }
 }

@@ -13,6 +13,9 @@ import { ImageComponent } from './main/image/image.component';
 import { LogoComponent } from './header/logo/logo.component';
 import { PlaceHolderImageComppnent } from './main/users/user-list/user-item/placeholder-image/placeholder-image';
 import { LoadingSpinnerComponent } from './shared/loading-spinner/loading-spinner.component';
+import { SuccessNotificationComponent } from './main/users/user-form/success-notification/success-notification.component';
+import { ShowTooltipDirective } from './show-tooltip.directive';
+
 
 @NgModule({
   declarations: [
@@ -26,6 +29,8 @@ import { LoadingSpinnerComponent } from './shared/loading-spinner/loading-spinne
     LogoComponent,
     PlaceHolderImageComppnent,
     LoadingSpinnerComponent,
+    SuccessNotificationComponent,
+    ShowTooltipDirective,
   ],
   imports: [
     BrowserModule,

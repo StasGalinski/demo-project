@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthService } from '../auth.service';
+import { ScrollService } from '../scroll.service';
+
 @Component({
   selector: 'app-header',
   templateUrl: './header.component.html',
@@ -7,9 +9,21 @@ import { AuthService } from '../auth.service';
 })
 export class HeaderComponent implements OnInit {
   isLoggedIn = false;
-  constructor(private auth: AuthService) {}
-  ngOnInit(): void {}
+  tokenId: string;
+  constructor(
+    private auth: AuthService,
+    private scrollService: ScrollService
+  ) {}
+  ngOnInit(): void {
+    this.auth.loginStatusChanged.subscribe((status) => {
+      this.tokenId = status;
+      this.isLoggedIn = status === null ? false : true;
+    });
+  }
   signUpHandler() {
-    this.auth.signUp();
+    !this.isLoggedIn ? this.auth.signUp() : this.auth.logout();
+  }
+  scrollTo() {
+    this.scrollService.scrollToElement('user-list');
   }
 }

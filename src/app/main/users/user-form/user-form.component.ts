@@ -15,6 +15,7 @@ export interface Position {
   styleUrls: ['./user-form.component.sass'],
 })
 export class UserFormComponent implements OnInit, OnDestroy {
+  isSubmitted = false;
   positions: Position[] = [
     { title: 'Frontend Developer' },
     { title: 'Backend Developer' },
@@ -34,6 +35,7 @@ export class UserFormComponent implements OnInit, OnDestroy {
         next: () => {
           console.log('no err')
           this.userForm.reset();
+          this.isSubmitted = true;
         },
         error: (error) => {
           console.log('err')
