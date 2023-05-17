@@ -1,5 +1,6 @@
 <form (ngSubmit)="onSubmit()" #f="ngForm" class="user-form" autocomplete="off" *ngIf="!isSubmitted">
   <h1>Working with POST request</h1>
+  <div class="error-field" *ngIf="error">{{error}}</div>
   <div class="input-groups">
     <div class="input-group">
       <input
@@ -61,13 +62,8 @@
       />
       <label for="imageScr">Image</label>
     </div>
-    <!-- <div class="file-input-wrapper">
-      <input type="file" class="file-input" />
-      <button class="file-input-button">Upload</button>
-      <span class="file-input-text">Upload you photo</span>
-    </div> -->
   </div>
 
-  <button class="button" [disabled]="!f.valid">Submit</button>
+  <button class="button" [disabled]="f.valid">Submit</button>
 </form>
 <app-success-notification *ngIf="isSubmitted"></app-success-notification>

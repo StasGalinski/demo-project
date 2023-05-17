@@ -10,11 +10,11 @@ import { FormsModule } from '@angular/forms';
 import { UsersComponent } from './main/users/users.component';
 import { UserItemComponent } from './main/users/user-list/user-item/user-item.component';
 import { ImageComponent } from './main/image/image.component';
-import { LogoComponent } from './header/logo/logo.component';
 import { PlaceHolderImageComppnent } from './main/users/user-list/user-item/placeholder-image/placeholder-image';
 import { LoadingSpinnerComponent } from './shared/loading-spinner/loading-spinner.component';
 import { SuccessNotificationComponent } from './main/users/user-form/success-notification/success-notification.component';
 import { ShowTooltipDirective } from './show-tooltip.directive';
+import { SvgIconComponent } from './shared/svg-icon/svg-icon.component';
 
 
 @NgModule({
@@ -26,11 +26,11 @@ import { ShowTooltipDirective } from './show-tooltip.directive';
     UsersComponent,
     UserItemComponent,
     ImageComponent,
-    LogoComponent,
     PlaceHolderImageComppnent,
     LoadingSpinnerComponent,
     SuccessNotificationComponent,
     ShowTooltipDirective,
+    SvgIconComponent,
   ],
   imports: [
     BrowserModule,

@@ -1,4 +1,4 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpErrorResponse, HttpResponse } from '@angular/common/http';
 import { Component, OnDestroy, OnInit, ViewChild } from '@angular/core';
 import { Subscription, map } from 'rxjs';
 import { NgForm } from '@angular/forms';
@@ -37,9 +37,9 @@ export class UserFormComponent implements OnInit, OnDestroy {
           this.userForm.reset();
           this.isSubmitted = true;
         },
-        error: (error) => {
-          console.log('err')
-          this.error = error;
+        error: (error:HttpErrorResponse) => {
+          console.log(error)
+          this.error = error.error.error;
         },
       });
   }
