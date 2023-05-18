@@ -64,6 +64,6 @@
     </div>
   </div>
 
-  <button class="button" [disabled]="f.valid">Submit</button>
+  <button class="button" [disabled]="!f.valid">Submit</button>
 </form>
 <app-success-notification *ngIf="isSubmitted"></app-success-notification>

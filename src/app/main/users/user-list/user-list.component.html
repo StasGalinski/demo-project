@@ -1,10 +1,10 @@
 <h1>Get request part</h1>
-<div id="user-list" class="user-list" *ngIf="!isLoading">
+<div  id="user-list" class="user-list transition-element" *ngIf="!isLoading">
   <div *ngFor="let user of loadedUsers; let i = index">
     <app-user-item [user]="user"></app-user-item>
   </div>
 </div>
-<app-loading-spinner *ngIf="isLoading"></app-loading-spinner>
+<app-loading-spinner class="transition-element" *ngIf="isLoading"></app-loading-spinner>
 
 <button class="button button-wide" (click)="showMoreUsers()">
   Show more users

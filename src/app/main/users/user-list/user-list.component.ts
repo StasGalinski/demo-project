@@ -7,7 +7,7 @@ import { Subscription } from 'rxjs';
 @Component({
   selector: 'app-user-list',
   templateUrl: './user-list.component.html',
-  styleUrls: ['./user-list.component.sass'],
+  styleUrls: ['./user-list.component.sass']
 })
 export class UserListComponent implements OnInit {
   private scrollSubscription: Subscription;

@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { User } from './user.model';
-import { Subject, map } from 'rxjs';
+import { Subject, catchError, map, of, throwError } from 'rxjs';
 import { HttpClient, HttpResponse } from '@angular/common/http';
 import { AuthService } from 'src/app/auth.service';
 @Injectable({
@@ -35,10 +35,20 @@ export class UserService {
         { name, email, phone, imagePath, position }
       )
       .pipe(
+        catchError(err=>{
+          let errorMessage= 'An unknown error occured'
+          console.log(err)
+          switch(err.error.error){
+
+            case "Permission denied":  errorMessage="Must be signed in"
+          }
+          return throwError(()=>new Error(errorMessage))
+        }),
         map((res: HttpResponse<Response>) => {
           this.usersChanged.next();
           this.auth.logout()
-        })
+        }),
+
       );
   }
   increaseRenderedUsers() {
