@@ -15,6 +15,7 @@ import { LoadingSpinnerComponent } from './shared/loading-spinner/loading-spinne
 import { SuccessNotificationComponent } from './main/users/user-form/success-notification/success-notification.component';
 import { ShowTooltipDirective } from './show-tooltip.directive';
 import { SvgIconComponent } from './shared/svg-icon/svg-icon.component';
+import { ImageSliderModule } from './image-slider/image-slider.module';
 
 
 @NgModule({
@@ -36,7 +37,8 @@ import { SvgIconComponent } from './shared/svg-icon/svg-icon.component';
     BrowserModule,
     FormsModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    ImageSliderModule
   ],
   providers: [],
   bootstrap: [AppComponent]
