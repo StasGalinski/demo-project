@@ -4,7 +4,7 @@
     </a>
     <ul class="nav-items">
       <li *ngIf="isLoggedIn" class="nav-item"><img class="user-icon" src="/assets/images/profile-icon.ico"></li>
-      <li class="nav-item button" (click)="scrollTo()">Users</li>
+      <li class="nav-item button" routerLink="/users" (click)="scrollTo()">Users</li>
       <li class="nav-item button" (click)="signUpHandler()">{{isLoggedIn ?"Sign out":"Sign up" }}</li>
     </ul>
 </nav>
