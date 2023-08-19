@@ -1,6 +1,5 @@
 import { Component, Input } from '@angular/core';
 import { SlideInterface } from '../types/slide.interface';
-import { trigger,state,style,animate,transition } from '@angular/animations';
 @Component({
   selector: 'image-slider',
   templateUrl: './image-slider.component.html',
