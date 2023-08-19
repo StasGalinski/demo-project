@@ -1,10 +1,7 @@
-<div class="slider">
-    <div>
-        <div class="leftArrow" (click)="goPrevious()"> « </div>
-        <div class="rightArrow"(click)="goNext()"> » </div>
+<div class="image-carousel">
+    <div class="carousel-frame">
+      <div class="carousel-image" [style.backgroundImage]="'url(' + images[currentImageIndex] + ')'"></div>
     </div>
-    <div class="slide" [ngStyle]="{'background-image': getCurrentSlideUrl }"></div>
-    <div class="dotsContainer">
-        <div *ngFor="let slide of slides; let slideIndex= index" class="dot" (click)="goToSlide(slideIndex)">*</div>
-    </div>
-</div>
+    <button class="prev-button" (click)="prevImage()">«</button>
+    <button class="next-button" (click)="nextImage()">»</button>
+  </div>

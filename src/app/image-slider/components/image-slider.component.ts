@@ -1,5 +1,6 @@
 import { Component, Input } from '@angular/core';
 import { SlideInterface } from '../types/slide.interface';
+import { trigger,state,style,animate,transition } from '@angular/animations';
 @Component({
   selector: 'image-slider',
   templateUrl: './image-slider.component.html',
@@ -7,24 +8,14 @@ import { SlideInterface } from '../types/slide.interface';
 })
 export class ImageSliderComponent {
   @Input() slides: SlideInterface[] = [];
-  currentIndex: number = 2;
-  get getCurrentSlideUrl(): string {
-    return `url('${this.slides[this.currentIndex].url}')`;
+  currentImageIndex: number = 0;
+  images: string[] = ['/assets/images/image-1.jpeg', '/assets/images/image-2.jpeg']; // Ваши изображения
+
+  prevImage(): void {
+    this.currentImageIndex = (this.currentImageIndex - 1 + this.images.length) % this.images.length;
   }
-  goPrevious(){
-    if(this.currentIndex > 0){
-      this.currentIndex--;
-    }else {
-      this.currentIndex=this.slides.length
-    }
-  }
-  goNext(){
-    if(this.currentIndex < this.slides.length){
-      this.currentIndex++
-    }
-    else {this.currentIndex=0}
-  }
-  goToSlide(index:number){
-    this.currentIndex = index;
+
+  nextImage(): void {
+    this.currentImageIndex = (this.currentImageIndex + 1) % this.images.length;
   }
 }
