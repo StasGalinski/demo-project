@@ -4,10 +4,18 @@ import { OnInit } from '@angular/core';
 import { UserService } from '../user.service';
 import { ScrollService } from 'src/app/scroll.service';
 import { Subscription } from 'rxjs';
+import { transition, trigger, useAnimation } from '@angular/animations';
+import { fadeIn,fadeOut } from './user-list-animation';
 @Component({
   selector: 'app-user-list',
   templateUrl: './user-list.component.html',
-  styleUrls: ['./user-list.component.sass']
+  styleUrls: ['./user-list.component.sass'],
+  animations: [
+    trigger('userListAnimation',[
+      transition('void=>*',useAnimation(fadeIn)),
+      transition('*=>void',useAnimation(fadeOut))
+    ])
+  ]
 })
 export class UserListComponent implements OnInit {
   private scrollSubscription: Subscription;

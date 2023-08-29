@@ -1,5 +1,5 @@
 <h1>My guest users</h1>
-<div  id="user-list" class="user-list transition-element" *ngIf="!isLoading">
+<div  id="user-list" class="user-list transition-element" *ngIf="!isLoading" @userListAnimation>
   <div *ngFor="let user of loadedUsers; let i = index">
     <app-user-item [user]="user"></app-user-item>
   </div>

@@ -1,6 +1,6 @@
-import { Component, Input } from '@angular/core';
+import { Component } from '@angular/core';
 
-import { animate, style, transition, trigger, useAnimation } from '@angular/animations';
+import { transition, trigger, useAnimation } from '@angular/animations';
 import { scaleIn,scaleOut } from './image-slider.animation';
 @Component({
   selector: 'image-slider',
