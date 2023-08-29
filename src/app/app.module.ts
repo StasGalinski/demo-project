@@ -16,8 +16,7 @@ import { SuccessNotificationComponent } from './main/users/user-form/success-not
 import { ShowTooltipDirective } from './show-tooltip.directive';
 import { SvgIconComponent } from './shared/svg-icon/svg-icon.component';
 import { ImageSliderModule } from './image-slider/image-slider.module';
-
-
+import {BrowserAnimationsModule} from '@angular/platform-browser/animations'
 @NgModule({
   declarations: [
     AppComponent,
@@ -38,7 +37,8 @@ import { ImageSliderModule } from './image-slider/image-slider.module';
     FormsModule,
     AppRoutingModule,
     HttpClientModule,
-    ImageSliderModule
+    ImageSliderModule,
+    BrowserAnimationsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -1,7 +1,13 @@
-<div class="image-carousel">
-    <div class="carousel-frame">
-      <div class="carousel-image" [style.backgroundImage]="'url(' + images[currentImageIndex] + ')'"></div>
-    </div>
-    <button class="prev-button" (click)="prevImage()">«</button>
-    <button class="next-button" (click)="nextImage()">»</button>
+<div class="container">
+  <div class="carousel">
+    <ng-container *ngFor="let image of images; let i = index">
+      <img *ngIf="i===currentSlide" [src]="image.src" class="slide" @carouselAnimation/>
+    </ng-container>
+    <button (click)="onPreviusClick()" class="control prev">
+      <span class="arrow left"></span>
+    </button>
+    <button (click)="onNextClick()" class="control next">
+      <span class="arrow right"></span>
+    </button>
   </div>
+</div>

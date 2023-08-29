@@ -1,37 +1,61 @@
-.image-carousel
-  position: relative
+:host
+  display: flex
+  justify-content: center
+  align-items: center
+.container
+  display: block
+  height: 200px
   width: 100%
-  max-width: 800px
-  margin: 0 auto
+.carousel
+  position: relative
+  height: 100%
+  width: 100%
   overflow: hidden
+  border-radius: 0.5rem
 
-  .carousel-frame
-    display: flex
-    width: 200% // Два раза шире для двух изображений
-    animation: slideAnimation 1s ease-in-out paused
+.slide
+  position: absolute
+  top: 0
+  left: 0
+  width: 100%
+  height: 100%
+  object-fit: cover
+  transition: transform 150ms cubic-bezier(0.25,0.46,0.45,0.84)
+  border-radius: 0.5rem
+  &:hover
+    transform: scale(1.025)
 
-  .carousel-image
-    flex: 1
-    height: 300px // Ваша высота изображения
-    background-size: cover
-    background-position: center
-    transition: background-image 0.5s ease-in-out
-
-  .prev-button, .next-button
+.control
+    border: none
+    background-color: transparent
+    outline: 0
     position: absolute
-    top: 50%
-    transform: translateY(-50%)
+    cursor: pointer
+    display: flex
+    flex-direction: column
+    justify-content: center
+    padding: 0.5em
+    color:white
+    font-weight: bold
+    font-size: 3em
+    user-select: none
+    height: 100%
+    opacity: 80%
+    transition: opacity 150ms cubic-bezier(0.25,0.46,0.45,0.84)
+    &:hover, &:focus
+      opacity: 1
+    &.next 
+      right: 0
 
-  .prev-button
-    left: 10px
-
-  .next-button
-    right: 10px
-
-  @keyframes slideAnimation
-    0%
-      transform: translateX(0)
-    50%
-      transform: translateX(-50%)
-    100%
-      transform: translateX(-100%)
+    &.prev 
+      left: 0
+.arrow
+  display: block
+  border-left: 0.1em solid white
+  border-bottom:0.1em solid white
+  width: 0.5em
+  height: 0.5em
+  &.left
+    transform: rotate(45deg)
+  &.right
+    transform: rotate(225deg)
