@@ -1,4 +1,4 @@
-import { Component,Input } from '@angular/core';
+import { AfterContentInit, Component,Input, OnInit } from '@angular/core';
 import { User } from '../../user.model';
 @Component({
   selector: 'app-user-item',

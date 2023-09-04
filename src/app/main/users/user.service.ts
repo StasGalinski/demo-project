@@ -28,11 +28,11 @@ export class UserService {
         })
       );
   }
-  addUser({ name, email, phone, imagePath, position }) {
+  addUser({ name, email, phone, image, position }) {
     return this.http
       .post(
         'https://fir-project-31497-default-rtdb.europe-west1.firebasedatabase.app/users.json?auth='+this.auth.getTokenId(),
-        { name, email, phone, imagePath, position }
+        { name, email, phone, image, position }
       )
       .pipe(
         catchError(err=>{

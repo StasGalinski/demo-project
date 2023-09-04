@@ -17,6 +17,7 @@ import { ShowTooltipDirective } from './show-tooltip.directive';
 import { SvgIconComponent } from './shared/svg-icon/svg-icon.component';
 import { ImageSliderModule } from './image-slider/image-slider.module';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations'
+import { AddBase64PrefixPipe } from './main/users/user-list/user-item/add-base64-prefix.pipe';
 @NgModule({
   declarations: [
     AppComponent,
@@ -31,6 +32,7 @@ import {BrowserAnimationsModule} from '@angular/platform-browser/animations'
     SuccessNotificationComponent,
     ShowTooltipDirective,
     SvgIconComponent,
+    AddBase64PrefixPipe
   ],
   imports: [
     BrowserModule,

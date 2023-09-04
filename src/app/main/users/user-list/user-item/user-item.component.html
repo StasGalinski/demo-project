@@ -1,7 +1,7 @@
 <div class="user-card">
   <img
-    *ngIf="!(imageLoadError || !user.imagePath); else palceholderImage"
-    src="{{ user.imagePath }}"
+    *ngIf="!(imageLoadError || !user.image); else palceholderImage"
+    [src]="user.image | addBase64Prefix"
     alt="{{ user.name }}"
     (error)="imageLoadError = true"
   />

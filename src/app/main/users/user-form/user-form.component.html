@@ -4,7 +4,7 @@
   <div class="input-groups">
     <div class="input-group">
       <input
-        class="text-input"
+        class="input"
         id="name"
         type="text"
         name="name"
@@ -16,7 +16,7 @@
     </div>
     <div class="input-group">
       <input
-        class="text-input"
+        class="input"
         id="email"
         type="email"
         name="email"
@@ -28,7 +28,7 @@
     </div>
     <div class="input-group">
       <input
-        class="text-input"
+        class="input"
         id="phone"
         type="string"
         name="phone"
@@ -51,19 +51,22 @@
         <label for="position" class="radio-label">{{ position.title }}</label>
       </div>
     </div>
-    <div class="input-group">
+    <div class="input file-input-group">
       <input
-        class="text-input"
+        id="file"
+        class="file-input"
         name="imageScr"
-        type="text"
-        ngModel
-        name="imagePath"
+        type="file"
+        name="image"
         required
+        accept=".jpg, .jpeg, .png"
+        (change)="onFileSelected($event)"
       />
-      <label for="imageScr">Image</label>
+      <label for="file" class="file-input-label">Upload</label>
+      <div class="file-info">{{selectedFilePath ? selectedFilePath :"Upload your photo"}}</div>
     </div>
   </div>
 
-  <button class="button" [disabled]="!f.valid">Submit</button>
+  <button class="button" [disabled]=f.invalid>Submit</button>
 </form>
 <app-success-notification *ngIf="isSubmitted"></app-success-notification>
