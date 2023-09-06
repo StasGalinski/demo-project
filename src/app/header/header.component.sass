@@ -1,5 +1,5 @@
 @import "variables"
-nav
+.normal-menu
   position: relative
   height: 3.75rem
   display: flex
@@ -23,3 +23,43 @@ ul
     align-items: center
     .user-icon
       height: 34px
+.nav-items
+  @media screen and (max-width: 768px) 
+    display: none
+  
+.burger
+  display: none
+  span
+    height: 2px
+    width: 80%
+    transform: scale(1)
+    background-color: #1a1613
+  @media screen and (max-width: 768px) 
+    display: flex
+    flex-direction: column
+    gap: 5px
+    z-index: 50
+    align-items: center
+    justify-content: flex-end
+    width: 40px
+    height: 18px
+
+.burger-menu
+  position:fixed
+  top: 0
+  z-index: 100
+  .background
+    overflow: hidden
+    position: fixed
+    height: 100vh
+    width:100vw
+    background-color: rgba(12, 0, 0, 0.537)
+    z-index: 100
+  ul
+    position: fixed
+    height: 100vh
+    width: 70vw
+    background-color: red
+    z-index: 150
+    display: flex
+    flex-direction: column
