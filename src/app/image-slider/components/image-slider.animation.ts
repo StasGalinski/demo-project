@@ -9,6 +9,6 @@ export const scaleIn = animation([
 export const scaleOut = animation([
   animate(
     '{{time}} cubic-bezier(0.785, 0.135, 0.15, 0.86)',
-    style({ opacity: 0, transfrom: 'scale(0.5)' })
+    style({ opacity: 0, transform: 'scale(0.5)' })
   ),
 ]);

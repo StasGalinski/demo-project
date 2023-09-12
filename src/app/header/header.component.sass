@@ -24,9 +24,9 @@ ul
     .user-icon
       height: 34px
 .nav-items
-  @media screen and (max-width: 768px) 
+  @media screen and (max-width: 768px)
     display: none
-  
+
 .burger
   display: none
   span
@@ -34,7 +34,7 @@ ul
     width: 80%
     transform: scale(1)
     background-color: #1a1613
-  @media screen and (max-width: 768px) 
+  @media screen and (max-width: 768px)
     display: flex
     flex-direction: column
     gap: 5px
@@ -45,21 +45,25 @@ ul
     height: 18px
 
 .burger-menu
-  position:fixed
+  position: fixed
   top: 0
   z-index: 100
   .background
     overflow: hidden
     position: fixed
     height: 100vh
-    width:100vw
+    width: 100vw
     background-color: rgba(12, 0, 0, 0.537)
     z-index: 100
-  ul
+  .burger-menu-items
     position: fixed
+    display: flex
+    flex-direction: column
+    justify-content: center
+    gap: 10px
     height: 100vh
     width: 70vw
-    background-color: red
+    background-color: $primary
     z-index: 150
     display: flex
     flex-direction: column
