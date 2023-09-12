@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Renderer2 } from '@angular/core';
 import { AuthService } from '../auth.service';
 import { ScrollService } from '../scroll.service';
 import { trigger,state, animate, style, transition } from '@angular/animations';
@@ -13,13 +13,7 @@ import { trigger,state, animate, style, transition } from '@angular/animations';
           left: "-200px"
         }),
         animate('200ms',style({left: 0}))
-      ]),
-      transition(':leave',[
-        style({
-          left: 0
-        }),
-        animate('200ms',style({left:"-200px"}))
-      ]),
+      ])
     ])
   ]
 })
@@ -29,7 +23,8 @@ export class HeaderComponent implements OnInit {
   tokenId: string;
   constructor(
     private auth: AuthService,
-    private scrollService: ScrollService
+    private scrollService: ScrollService,
+    private renderer:Renderer2
   ) {}
   ngOnInit(): void {
     this.auth.loginStatusChanged.subscribe((status) => {
@@ -44,6 +39,12 @@ export class HeaderComponent implements OnInit {
     this.scrollService.scrollToElement('user-list');
   }
   toggleBurger(){
-    this.burgerIsOpen= this.burgerIsOpen ? false: true
+    if(this.burgerIsOpen){
+      this.renderer.removeStyle(document.body, 'overflow');
+      this.burgerIsOpen = false
+    } else {
+      this.renderer.setStyle(document.body, 'overflow', 'hidden');
+      this.burgerIsOpen=true
+    }
   }
 }

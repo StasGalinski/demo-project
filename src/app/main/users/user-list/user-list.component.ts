@@ -4,10 +4,28 @@ import { OnInit } from '@angular/core';
 import { UserService } from '../user.service';
 import { ScrollService } from 'src/app/scroll.service';
 import { Subscription } from 'rxjs';
+import {
+  animate,
+  state,
+  style,
+  transition,
+  trigger,
+} from '@angular/animations';
 @Component({
   selector: 'app-user-list',
   templateUrl: './user-list.component.html',
-  styleUrls: ['./user-list.component.sass']
+  styleUrls: ['./user-list.component.sass'],
+  animations: [
+    trigger('userState', [
+      state(
+        'in',
+        style({
+          opacity: 1,
+        })
+      ),
+      transition('void=>*', [style({ opacity: 0 }), animate(300)]),
+    ]),
+  ],
 })
 export class UserListComponent implements OnInit {
   private scrollSubscription: Subscription;
@@ -40,7 +58,7 @@ export class UserListComponent implements OnInit {
   showMoreUsers() {
     this.isLoading = true;
     this.usersService.increaseRenderedUsers();
-    this.scrollToElement()
+    this.scrollToElement();
   }
   private fillUsersAndEndLoading(data: User[]) {
     this.loadedUsers = data;
