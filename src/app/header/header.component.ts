@@ -34,6 +34,7 @@ export class HeaderComponent implements OnInit {
   }
   signUpHandler() {
     !this.isLoggedIn ? this.auth.signUp() : this.auth.logout();
+    this.burgerIsOpen && this.closeBurger()
   }
   scrollTo() {
     this.scrollService.scrollToElement('user-list');
@@ -46,5 +47,8 @@ export class HeaderComponent implements OnInit {
       this.renderer.setStyle(document.body, 'overflow', 'hidden');
       this.burgerIsOpen=true
     }
+  }
+  closeBurger(){
+    this.burgerIsOpen = false;
   }
 }

@@ -15,8 +15,12 @@
   </nav>
   <nav  class="burger-menu"  *ngIf="burgerIsOpen">
     <div class="background" (click)="toggleBurger()"></div>
-    <ul class="burger-menu-items" @burgerState>
-      <li class="burger-menu-item" (click)="signUpHandler()">{{isLoggedIn ?"Sign out":"Sign up" }}</li>
-    </ul>
+      <ul class="burger-menu-items" @burgerState>
+        <li class="burger-menu-item button" (click)="signUpHandler()">{{isLoggedIn ?"Sign out":"Sign up" }}</li>
+        <li class="burger-menu-item button">Dummy button</li>
+        <li class="burger-menu-item button">Dummy button</li>
+        <li class="burger-menu-item button">Dummy button</li>
+        <li class="burger-menu-item button">Dummy button</li>
+      </ul>
   </nav>
 
